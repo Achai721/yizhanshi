@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 // import 'package:myapp/chat.dart.dart';
 
 class MyColors {
-  static const Color color_ff90caf9 = Color(0xffFFF5E0);
+  static const Color color_ff90caf9 = Color(0xffef882b);
 }
 
 void main() => runApp(const MyApp());
@@ -14,9 +14,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false, // 不显示右上角的 debug
-        title: 'Flutter Demo',
+        title: '一站式服务平台',
         theme: ThemeData(
-          primaryColor: Color(0xffFFF5E0),
+          primaryColor: Color(0xffef882b),
+          buttonTheme: ButtonThemeData(
+              buttonColor: Color(0xffef882b),
+            disabledColor: Color(0xffef882b),
+          )
         ),
         // 注册路由表
         routes: {
@@ -57,7 +61,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: new BoxDecoration(color: Color(0xffFFF5E0)),
+        decoration: const BoxDecoration(color: Color(0xfffff5e0)),
         child: Form(
         key: _formKey, // 设置globalKey，用于后面获取FormStat
         autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -66,7 +70,7 @@ class _HomePageState extends State<HomePage> {
           children: [
             const SizedBox(height: kToolbarHeight), // 距离顶部一个工具栏的高度
             buildTitle(), // Login
-            buildTitleLine(), // Login下面的下划线
+            // buildTitleLine(), // Login下面的下划线
             const SizedBox(height: 60),
             buildEmailTextField(), // 输入邮箱
             const SizedBox(height: 30),
@@ -141,15 +145,16 @@ class _HomePageState extends State<HomePage> {
   Widget buildLoginButton(BuildContext context) {
     return Align(
       child: SizedBox(
-        height: 45,
-        width: 270,
-        child: ElevatedButton(
-          style: ButtonStyle(
+          width: 221,
+          height: 56,
+        child: RaisedButton(
+          
             // 设置圆角
-              shape: MaterialStateProperty.all(const StadiumBorder(
-                  side: BorderSide(style: BorderStyle.none)))),
+            //   shape: MaterialStateProperty.all(const StadiumBorder(
+            //       side: BorderSide(style: BorderStyle.none))),
+          color: Color(0xffef882b),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(29.0)),
           child: Text('登录',
-
               style: Theme.of(context).primaryTextTheme.headline5),
           onPressed: () {
             // 表单校验通过才会继续执行
@@ -161,12 +166,13 @@ class _HomePageState extends State<HomePage> {
           },
         ),
       ),
+
     );
   }
 
   Widget buildForgetPasswordText(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 8),
+      padding: const EdgeInsets.only(top: 10),
       child: Align(
         alignment: Alignment.centerRight,
         child: TextButton(
@@ -216,35 +222,35 @@ class _HomePageState extends State<HomePage> {
         var emailReg = RegExp(
             r"[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?");
         if (!emailReg.hasMatch(v!)) {
-          return '请输入正确的邮箱地址';
+          return '请输入正确的用户名';
         }
       },
       onSaved: (v) => _email = v!,
     );
   }
 
-  Widget buildTitleLine() {
+  Widget buildTitle() {
     return Padding(
-        padding: const EdgeInsets.only(left: 12.0, top: 4.0),
-        child: Align(
-          alignment: Alignment.bottomLeft,
-          child: Container(
-            color: Colors.black,
-            width: 40,
-            height: 2,
+        padding: const EdgeInsets.only(left: 20.0, top: 100.0),
+        child:Container(
+          child: Image(
+                image:AssetImage('images/Rectangle_99.png'),
+            width: 70.0,
+            height: 70.0,
+            ),
           ),
-        ));
+        );
   }
 
-  Widget buildTitle() {
-    return const Padding(
-        padding: EdgeInsets.all(8),
-        child: Text(
-          '登录',
-          style: TextStyle(fontSize: 42),
-        ));
-  }
-}
+//   Widget buildTitle() {
+//     return const Padding(
+//         padding: EdgeInsets.all(8),
+//         child: Text(
+//           '登录',
+//           style: TextStyle(fontSize: 42),
+//         ));
+//   }
+// }
 //ALL IN ALL LOGIN
 // //region 登录功能，密码正确则跳转
 // bool _login() {
@@ -273,79 +279,4 @@ class _HomePageState extends State<HomePage> {
 //         });
 //     return false;
 //   }
-// }
-/**
-// import 'package:flutter/services.dart';
-// import 'home.dart' as home;
-// import 'user.dart' as User;
-//
-// void main() => runApp(const MyApp());
-//
-// class MyApp extends StatelessWidget {
-//   const MyApp({Key? key}) : super(key: key);
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     const appTitle = 'login';
-//
-//     return MaterialApp(
-//       title: appTitle,
-//       home: Scaffold(
-//         appBar: AppBar(
-//           title: const Text(appTitle),
-//         ),
-//         body: const LoginPage(),
-//       ),
-//     );
-//   }
-// }
-//
-// TextEditingController userEdit = new TextEditingController();
-// TextEditingController passwordEdit = new TextEditingController();
-//
-// class LoginPage extends StatelessWidget {
-//   const LoginPage({Key? key}) : super(key: key);
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       child: Column(
-//         mainAxisAlignment: MainAxisAlignment.center,
-//         children: [
-//           Row(
-//             mainAxisAlignment: MainAxisAlignment.center,
-//             children: [
-//               Icon(Icons.people),
-//               SizedBox(
-//                 width: 2,
-//               ),
-//               Container(
-//                 width: 200,
-//                 child: TextField(
-//                   controller: userEdit,
-//                   keyboardType: TextInputType.text,
-//                 ),
-//               ),
-//             ],
-//           ),
-//           Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-//             Icon(Icons.password),
-//             SizedBox(
-//               width: 2,
-//             ),
-//             Container(
-//               width: 200,
-//               child: TextField(
-//                 controller: passwordEdit,
-//                 obscureText:true,
-//                 keyboardType: TextInputType.text,
-//               ),
-//             ),
-//           ]),
-
-        // ],
-      // ),
-//     );
-//   }
-// }
-**/
+}
