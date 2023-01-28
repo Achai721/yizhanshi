@@ -59,13 +59,14 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-  - images/Rectangle_13.png
-  - images/Rectangle_13(1).png
-  - images/Rectangle_13(2).png
-  - images/Rectangle_13(3).png
-  - images/Rectangle_13(4).png
-  - images/Rectangle_13(5).png
-  - images/Rectangle_99.png
+    - images/
+    - images/Rectangle_13.png
+    - images/Rectangle_13(1).png
+    - images/Rectangle_13(2).png
+    - images/Rectangle_13(3).png
+    - images/Rectangle_13(4).png
+    - images/Rectangle_13(5).png
+    - images/Rectangle_99.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
