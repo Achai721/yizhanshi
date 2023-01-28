@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:myapp/chat.dart.dart';
+import 'package:myapp/shiming.dart';
 
 class MyColors {
   static const Color color_ff90caf9 = Color(0xffef882b);
@@ -24,22 +24,22 @@ class MyApp extends StatelessWidget {
         ),
         // 注册路由表
         routes: {
-          "/": (context) => const HomePage(title: "登录"), // 首页路由
+          "/": (context) => const home_page(title: "登录"), // 首页路由
         });
   }
 }
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key, required this.title}) : super(key: key);
+class home_page extends StatefulWidget {
+  const home_page({Key? key, required this.title}) : super(key: key);
   final String title;
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _home_pageState createState() => _home_pageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _home_pageState extends State<home_page> {
   final GlobalKey _formKey = GlobalKey<FormState>();
-  late String _email, _password;
+  var _phone, _password;
   bool _isObscure = true;
   Color _eyeColor = Colors.grey;
   final List _loginMethod = [
@@ -72,7 +72,7 @@ class _HomePageState extends State<HomePage> {
             buildTitle(), // Login
             // buildTitleLine(), // Login下面的下划线
             const SizedBox(height: 40),
-            buildEmailTextField(), // 输入邮箱
+            buildphoneTextField(), // 输入邮箱
             const SizedBox(height: 30),
             buildPasswordTextField(context), // 输入密码
             buildForgetPasswordText(context), // 忘记密码
@@ -148,7 +148,7 @@ class _HomePageState extends State<HomePage> {
           width: 221,
           height: 56,
         child: RaisedButton(
-          
+
             // 设置圆角
             //   shape: MaterialStateProperty.all(const StadiumBorder(
             //       side: BorderSide(style: BorderStyle.none))),
@@ -157,18 +157,27 @@ class _HomePageState extends State<HomePage> {
           child: Text('登录',
               style: Theme.of(context).primaryTextTheme.headline5),
           onPressed: () {
-            // 表单校验通过才会继续执行
-            if ((_formKey.currentState as FormState).validate()) {
-              (_formKey.currentState as FormState).save();
-              //TODO 执行登录方法
-              print('email: $_email, password: $_password');
-            }
-          },
-        ),
-      ),
-
+    if (_phone.characters   == "17319076721" && _password.characters == "123456") {
+      _navigatetoshimmingrenzheng(context);
+          }
+    },// 表单校验通过才会继续执行
+    ),
+    ),
     );
-  }
+    }
+    _navigatetoshimmingrenzheng(BuildContext context)async{
+    final result=await Navigator.push(context, MaterialPageRoute(builder: (context)=>Shiming()));
+    }
+
+            // if ((_formKey.currentState as FormState).validate()) {
+            //   (_formKey.currentState as FormState).save();
+            //   //TODO 执行登录方法
+            //   print('phone: $_phone, password: $_password');
+            //   Navigator.of(context).pushAndRemoveUntil(
+            //   new MaterialPageRoute(
+            // builder: (context) => new ChatApp(),
+            // (route) => route == null);
+
 
   Widget buildForgetPasswordText(BuildContext context) {
     return Padding(
@@ -180,7 +189,7 @@ class _HomePageState extends State<HomePage> {
             // Navigator.pop(context);
             print("忘记密码");
           },
-          child: const Text("忘记密码？",
+          child: const Text("忘记密码",
               style: TextStyle(fontSize: 14, color: Colors.grey)),
         ),
       ),
@@ -215,17 +224,17 @@ class _HomePageState extends State<HomePage> {
             )));
   }
 
-  Widget buildEmailTextField() {
+  Widget buildphoneTextField() {
     return TextFormField(
       decoration: const InputDecoration(labelText: '用户名/手机号'),
       validator: (v) {
-        var emailReg = RegExp(
-            r"[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?");
-        if (!emailReg.hasMatch(v!)) {
+        var _phoneReg = RegExp(
+            r'^((13[0-9])|(14[0-9])|(15[0-9])|(16[0-9])|(17[0-9])|(18[0-9])|(19[0-9]))\d{8}$');
+        if (!_phoneReg.hasMatch(v!)) {
           return '请输入正确的用户名';
         }
       },
-      onSaved: (v) => _email = v!,
+      onSaved: (v) => _phone = v!,
     );
   }
 
@@ -242,41 +251,8 @@ class _HomePageState extends State<HomePage> {
         );
   }
 
-//   Widget buildTitle() {
-//     return const Padding(
-//         padding: EdgeInsets.all(8),
-//         child: Text(
-//           '登录',
-//           style: TextStyle(fontSize: 42),
-//         ));
-//   }
-// }
-//ALL IN ALL LOGIN
-// //region 登录功能，密码正确则跳转
-// bool _login() {
-//   if (_userName.text == "admin" && _userPws.text == "123456") {
-//     Navigator.of(context).pushAndRemoveUntil(
-//         new MaterialPageRoute(
-//             builder: (context) => new IndexPage()),
-//             (route) => route == null);
-//     return true;
-//   } else {
-//     showDialog(
-//         context: context,
-//         builder: (context) {
-//           return AlertDialog(
-//             title: Text("提示"),
-//             content: Text("账号或密码错误，请检查"),
-//             actions: <Widget>[
-//               FlatButton(
-//                 child: Text("确认"),
-//                 onPressed: () {
-//                   Navigator.of(context).pop(true); //关闭对话框
-//                 },
-//               )
-//             ],
-//           );
-//         });
-//     return false;
-//   }
+
+
 }
+
+

@@ -16,16 +16,12 @@ class _ChatAppState extends State<ChatApp> {
   //for the rest of the tutorial I'll need to import a set of images' Url for the avatar
   //this is my images list
   List<String> _avatarUrl = [
-    "https://images.unsplash.com/photo-1573890990305-0ab6a7195ab6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
-    "https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
-    "https://images.unsplash.com/photo-1545130368-4c55e2418062?ixlib=rb-1.2.1&auto=format&fit=crop&w=926&q=80",
-    "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
-    "https://images.unsplash.com/photo-1470441623172-c47235e287ee?ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80",
-    "https://images.unsplash.com/photo-1458662236860-b721a6735660?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
-    "https://images.unsplash.com/photo-1530268729831-4b0b9e170218?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
-    "https://images.unsplash.com/photo-1534308143481-c55f00be8bd7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1188&q=80",
-    "https://images.unsplash.com/photo-1525879000488-bff3b1c387cf?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
-    "https://images.unsplash.com/photo-1535201344891-231e85e83c8a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+    'images/Rectangle_13.png',
+    'images/Rectangle_13(1).png',
+    'images/Rectangle_13(2).png',
+    'images/Rectangle_13(3).png',
+    'images/Rectangle_13(4).png',
+    'images/Rectangle_13(5).png',
   ];
 
   //Avatar widget
@@ -38,7 +34,7 @@ class _ChatAppState extends State<ChatApp> {
           image: DecorationImage(
             fit: BoxFit.cover,
             alignment: Alignment.topCenter,
-            image: NetworkImage(urlImg),
+            image: AssetImage(urlImg),
           )),
     );
   }
@@ -136,7 +132,7 @@ class _ChatAppState extends State<ChatApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Color(0xfffff5e0),
       body: Container(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 35.0),
@@ -164,7 +160,7 @@ class _ChatAppState extends State<ChatApp> {
                     onPressed: () {},
                     elevation: 0.0,
                     padding: EdgeInsets.all(8.0),
-                    color: Colors.blue,
+                    color: Color(0xffef882b),
                     shape: CircleBorder(),
                     child: Icon(Icons.edit, color: Colors.white),
                   )
@@ -246,9 +242,9 @@ class _ChatAppState extends State<ChatApp> {
 
       //Now i'm going to create the button menu bar
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.black,
-        unselectedItemColor: Colors.white,
-        selectedItemColor: Colors.blue,
+        backgroundColor: Color(0xfffff5e0),
+        unselectedItemColor: Color(0xffffffff),
+        selectedItemColor: Color(0xffef882b),
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.message),
