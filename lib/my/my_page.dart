@@ -7,8 +7,12 @@ class Mypage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  const Center(
-      child:Text("个人主页")
+    return  Scaffold(
+      backgroundColor: Color(0xfffff5e0),
+      body:Center(
+        child: Container(
+        child:Text("个人主页"),)
+      )
     );
   }
 }

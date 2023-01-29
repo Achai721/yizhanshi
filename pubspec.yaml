@@ -73,6 +73,9 @@ flutter:
   - images/phone.png
   - images/white.png
   - images/bigwhite.png
+  - images/img_1.png
+  - images/img_2.png
+  - images/img_3.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

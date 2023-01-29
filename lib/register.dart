@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../login.dart';
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
@@ -49,7 +50,9 @@ class _RegisterState extends State<Register> {
                     ),
                   ),
                   OutlineButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).pushNamed("/login");
+                      },
                       color: Color(0xffef882b),
                       child: Text(
                         '→',

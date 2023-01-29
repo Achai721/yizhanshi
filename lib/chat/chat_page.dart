@@ -1,12 +1,5 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: ChatApp(),
-  ));
-}
-
 class ChatApp extends StatefulWidget {
   @override
   _ChatAppState createState() => _ChatAppState();
