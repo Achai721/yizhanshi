@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/chat/chat_page.dart';
-import '../my/my_page.dart';
 // import 'package:myapp/chat.dart.dart';
 
 class MyColors {
@@ -82,6 +81,7 @@ class _LoginPageState extends State<LoginPage> {
               child: const Text('点击注册', style: TextStyle(color: Colors.green)),
               onTap: () {
                 print("点击注册");
+                Navigator.of(context).pushNamed("/register");
               },
             )
           ],
@@ -138,16 +138,8 @@ class _LoginPageState extends State<LoginPage> {
           child: Text('登录',
               style: Theme.of(context).primaryTextTheme.headline5),
           onPressed: () {
-    if (_phone   == "18887347872" && _password == "123456") {
-      // Navigator.push(context,
-        // MaterialPageRoute(builder: (context) {
-        //   return Mypage();
-        //   },
-        //   ),
-        //   );
-      Navigator.of(context).pushNamed("/home");
-          }
-    },// 表单校验通过才会继续执行
+      Navigator.of(context).pushNamed("/shiming");
+          } // 表单校验通过才会继续执行
     ),
     ),
     );

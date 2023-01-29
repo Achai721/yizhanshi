@@ -1,12 +1,5 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: ChatApp(),
-  ));
-}
-
 class ChatApp extends StatefulWidget {
   @override
   _ChatAppState createState() => _ChatAppState();
@@ -34,7 +27,7 @@ class _ChatAppState extends State<ChatApp> {
           image: DecorationImage(
             fit: BoxFit.cover,
             alignment: Alignment.topCenter,
-            image: NetworkImage(urlImg),
+            image: AssetImage(urlImg),
           )),
     );
   }
@@ -132,7 +125,7 @@ class _ChatAppState extends State<ChatApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Color(0xfffff5e0),
       body: Container(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 35.0),
@@ -160,7 +153,7 @@ class _ChatAppState extends State<ChatApp> {
                     onPressed: () {},
                     elevation: 0.0,
                     padding: EdgeInsets.all(8.0),
-                    color: Colors.blue,
+                    color: Color(0xffef882b),
                     shape: CircleBorder(),
                     child: Icon(Icons.edit, color: Colors.white),
                   )
@@ -242,9 +235,9 @@ class _ChatAppState extends State<ChatApp> {
 
       //Now i'm going to create the button menu bar
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.black,
-        unselectedItemColor: Colors.white,
-        selectedItemColor: Colors.blue,
+        backgroundColor: Color(0xfffff5e0),
+        unselectedItemColor: Color(0xffffffff),
+        selectedItemColor: Color(0xffef882b),
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.message),

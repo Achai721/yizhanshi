@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:myapp/chat/chat_page.dart';
 import 'package:myapp/home/home_page.dart';
 import 'package:myapp/login.dart';
+import 'package:myapp/register.dart';
+import 'package:myapp/shiming.dart';
 import 'package:myapp/splashpage.dart';
 import '../my/my_page.dart';
-// import 'package:myapp/chat.dart.dart';
 
 class MyColors {
   static const Color color_ff90caf9 = Color(0xffef882b);
@@ -31,7 +32,10 @@ class MyApp extends StatelessWidget {
         routes: {
           "/": (context) =>   SplashPage(),
           "/login": (context) =>  const LoginPage(title:"登录"),
-          "/home": (context) =>  const HomePage(), // 首页路由
+          "/home": (context) =>  const HomePage(),// 首页路由
+          "/register": (context) =>  const Register(),//注册
+          "/shiming": (context) =>  const Shiming(),//实名认证
+          "/chat": (context) => ChatApp(),//聊天
           //记得页面在这里写路由
         });
   }
