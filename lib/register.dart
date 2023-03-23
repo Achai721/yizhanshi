@@ -12,25 +12,25 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xfffff5e0),
-        body: Center(
-            child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Text("注册", style: TextStyle(color: Colors.black, fontSize: 30.0)),
-            Image(
-                image: AssetImage('images/white.png'), width: 104, height: 104),
-            Stack(
-              children: <Widget>[
-                SizedBox(
+      backgroundColor: Color(0xfffff5e0),
+      body: Center(
+          child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Text("注册", style: TextStyle(color: Colors.black, fontSize: 30.0)),
+          Image(image: AssetImage('images/white.png'), width: 104, height: 104),
+          Stack(children: <Widget>[
+            SizedBox(
+              width: 403,
+              height: 375,
+              child: Image(
+                  image: AssetImage('images/bigwhite.png'),
                   width: 403,
-                  height: 375,
-                  child: Image(
-                      image: AssetImage('images/bigwhite.png'),
-                      width: 403,
-                      height: 375),
-                ),
-                Column(
+                  height: 375),
+            ),
+            Positioned(
+
+                child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: <Widget>[
                   TextField(
@@ -39,6 +39,7 @@ class _RegisterState extends State<Register> {
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(30)),
                           borderSide: BorderSide(color: Color(0xffef882b))),
+
                     ),
                   ),
                   TextField(
@@ -53,16 +54,24 @@ class _RegisterState extends State<Register> {
                       onPressed: () {
                         Navigator.of(context).pushNamed("/login");
                       },
-                      color: Color(0xffef882b),
-                      child: Text(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5.0)),
+                      borderSide: BorderSide(
+                        color: Color(0xffef882b),
+                        width: 5.0,
+                      ),
+                      child: const Text(
                         '→',
-                        style:
-                            TextStyle(fontSize: 50, color: Color(0xffef882b)),
-                      ))
-                ])
-              ],
-            )
-          ],
-        )));
+                        style: TextStyle(
+                          fontSize: 50,
+                          color: Color(0xffef882b),
+                        ),
+                      ) //Text
+                      )
+                ]))
+          ])
+        ],
+      )),
+    );
   }
 }

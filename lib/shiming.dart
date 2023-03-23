@@ -181,7 +181,7 @@ class _ShimingState extends State<Shiming> {
               width: 56,
               child:RaisedButton(
                     onPressed: () {
-                      Navigator.of(context).pushNamed("/home");
+                      Navigator.of(context).pushNamed("/index");
                     },
                     padding: EdgeInsets.all(0.0),
                     child: Text("注册"),
