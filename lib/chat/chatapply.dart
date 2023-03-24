@@ -13,8 +13,18 @@ class _applyState extends State<apply> {
     return Scaffold(
       backgroundColor: Color(0xfffff5e0),
       body: Center(
-        child: Text("Apply",style:TextStyle(color: Colors.black,fontSize: 30)),
-      ),
+          child: Padding(
+              padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+              child: Container(
+                width: 700,
+                height: 600,
+                child: Image(
+                  image: AssetImage(
+                    'images/chatapply.png',
+                  ),
+                  fit: BoxFit.fill,
+                ),
+              ))),
     );
   }
 }

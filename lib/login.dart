@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/chat/chat_page.dart';
-// import 'package:myapp/chat.dart.dart';
+import 'package:http/http.dart' as http;
+import 'dart:async';
+import 'dart:convert';
 
 class MyColors {
   static const Color color_ff90caf9 = Color(0xffef882b);
@@ -11,7 +13,14 @@ class MyColors {
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key, required this.title}) : super(key: key);
   final String title;
-
+  // Future<String> getData() async {
+  //   var response = await http.get(
+  //       Uri.encodeFull( " http://127.0.0.1:4523/m1/2475148-0-default/login " ),
+  //       headers: { "Accept" : "application/json" });
+  //   setState(() {
+  //     data = json.decode(response.body);
+  //   });
+  //   return "Success" ;  }
   @override
   _LoginPageState createState() => _LoginPageState();
 }
@@ -138,22 +147,18 @@ class _LoginPageState extends State<LoginPage> {
           child: Text('登录',
               style: Theme.of(context).primaryTextTheme.headline5),
           onPressed: () {
-      Navigator.of(context).pushNamed("/shiming");
+
+            // if (_formKey.currentState.validate()) {
+            //   ///只有输入的内容符合要求通过才会到达此处
+            //   _formKey.currentState.save();
+            //   //TODO 执行登录方法
+            //   print('phone:$_phone , assword:$_password');
+              Navigator.of(context).pushNamed("/shiming");
           } // 表单校验通过才会继续执行
     ),
     ),
     );
     }
-
-            // if ((_formKey.currentState as FormState).validate()) {
-            //   (_formKey.currentState as FormState).save();
-            //   //TODO 执行登录方法
-            //   print('phone: $_phone, password: $_password');
-            //   Navigator.of(context).pushAndRemoveUntil(
-            //   new MaterialPageRoute(
-            // builder: (context) => new ChatApp(),
-            // (route) => route == null);
-
 
   Widget buildForgetPasswordText(BuildContext context) {
     return Padding(
@@ -174,6 +179,7 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget buildPasswordTextField(BuildContext context) {
     return TextFormField(
+        // onSaved: (v) => _password = v,
         obscureText: _isObscure, // 是否显示文字
         onChanged: (v) => _password = v,
         validator: (v) {
@@ -211,6 +217,7 @@ class _LoginPageState extends State<LoginPage> {
         }
       },
       onChanged: (v) => _phone = v,
+      // onSaved: (v) => _phone = v,
     );
   }
 
@@ -226,31 +233,6 @@ class _LoginPageState extends State<LoginPage> {
           ),
         );
   }
-
-//ALL IN ALL LOGIN
-//region 登录功能，密码正确则跳转
-// bool login() {
-//   if (_phone.characters   == "18887347872" && _password.characters == "123456") {
-//     Navigator.of(context).pushAndRemoveUntil(
-//         new MaterialPageRoute(
-//             builder: (context) => new ChatApp()),
-//             (route) => route == null);
-//     return true;
-//   } else {
-//     showDialog(
-//         context: context,
-//         builder: (context) {
-//       return AlertDialog(
-//           title: Text("提示"),
-//           content: Text("账号或密码错误，请检查"),
-//           actions: <Widget>[
-//       FlatButton(
-//       child: Text("确认"),
-//   onPressed: () {
-//   Navigator.of(context).pop(true); //关闭对话框
-//   }
-// },
-
 }
 
 

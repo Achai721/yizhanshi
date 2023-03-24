@@ -15,6 +15,10 @@ import 'package:myapp/splashpage.dart';
 import 'package:myapp/my/mycomment.dart';
 import '../my/myinformation.dart';
 import '../chat/search.dart';
+import '../my/joined.dart';
+import '../my/created.dart';
+import '../my/commentrecieved.dart';
+import '../my/commentmade.dart';
 
 class MyColors {
   static const Color color_ff90caf9 = Color(0xffef882b);
@@ -47,13 +51,17 @@ class MyApp extends StatelessWidget {
           "/chat": (context) => ChatApp(),//聊天
           "/index": (context) => MainPage(),
           "/comment":(context)=>mycomment(),
-          "/mycorner":(context)=>mycorner(),
+          "/corner":(context)=> mycorner(),
           "/information":(context)=>myinformation(),
           "/fankui": (context) => fankui(),
           "/news":(context)=>news(),
           "/apply":(context)=>apply(),
           "/publish":(context)=>publish(),
           "/search":(context)=>search(),
+          "/joined":(context)=>joined(),
+          "/created":(context)=>created(),
+          "/made":(context)=>made(),
+          "/received":(context)=>received(),
           //记得页面在这里写路由
         });
   }
