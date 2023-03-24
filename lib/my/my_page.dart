@@ -72,11 +72,7 @@ class Mypage extends StatelessWidget {
                             ),
                             onPressed: () {
                               //导航到新路由
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) {
-                                  return mycomment();
-                                }),
+                              Navigator.of(context).pushNamed("/comment"
                               );
                             },
                           ),
@@ -101,12 +97,7 @@ class Mypage extends StatelessWidget {
                             ),
                             onPressed: () {
                               //导航到新路由
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) {
-                                  return mycorner();
-                                }),
-                              );
+                              Navigator.of(context).pushNamed("/corner");
                             },
                           ),
                           Text(

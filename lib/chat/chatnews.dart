@@ -10,11 +10,21 @@ class news extends StatefulWidget {
 class _newsState extends State<news> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: Color(0xfffff5e0),
       body: Center(
-        child: Text("News",style:TextStyle(color: Colors.black,fontSize: 30)),
-      ),
+          child: Padding(
+              padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+              child: Container(
+                width: 700,
+                height: 600,
+                child: Image(
+                  image: AssetImage(
+                    'images/chatnews.png',
+                  ),
+                  fit: BoxFit.fill,
+                ),
+              ))),
     );
   }
 }

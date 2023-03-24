@@ -19,38 +19,54 @@ class _ShimingState extends State<Shiming> {
       backgroundColor: Color(0xfffff5e0),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             Positioned(
               top: 70.0,
               left: 50.0,
-              child: Text(
-                "实名认证",
-                style: TextStyle(color: Color(0xffACA6A6), fontSize: 20.0),
+              child: Row(
+                children: [
+                  IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: Icon(
+                        Icons.arrow_back,
+                        size: 30,
+                      )),
+                  SizedBox(width: 95,),
+                  Text(
+                    "实名认证",
+                    style: TextStyle(color: Color(0xffACA6A6), fontSize: 30.0),
+                  ),
+                ],
               ),
             ),
             Image(
                 image: AssetImage("images/Rectangle_99.png"),
-                width: 20,
-                height: 20),
+                width: 50,
+                height: 50),
             Positioned(
               child: SizedBox(
                   width: 385.0,
                   height: 327.0,
                   child: Stack(
                     children: <Widget>[
-                      Card(
-                        color: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(39.0),
+                      Container(
+                        width: 385,
+                        height: 327,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.all(Radius.circular(30)),
                         ),
                       ),
                       Positioned(
+                        right: 20,bottom: 42,
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
                             Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: <Widget>[
                                 Image(
                                   image: AssetImage(
@@ -61,10 +77,13 @@ class _ShimingState extends State<Shiming> {
                                 ),
                                 new Text("学号",
                                     style: TextStyle(
-                                        fontSize: 24.0, color: Colors.black)),
-                                TextField(
-                                  decoration:
-                                      InputDecoration(border: InputBorder.none),
+                                        fontSize: 20.0, color: Colors.black)),
+                                Container(
+                                  width: 200,
+                                  height: 30,
+                                  child: TextField(
+                                    decoration: InputDecoration(),
+                                  ),
                                 ),
                                 Image(
                                   image: AssetImage(
@@ -75,12 +94,13 @@ class _ShimingState extends State<Shiming> {
                                 ),
                               ],
                             ), //学号
+                            // SizedBox(height: 30,),
                             Divider(
                                 height: 1.0,
                                 indent: 60.0,
                                 color: Color(0xffACA6A6)),
                             new Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: <Widget>[
                                 Image(
                                   image: AssetImage(
@@ -91,10 +111,13 @@ class _ShimingState extends State<Shiming> {
                                 ),
                                 new Text("姓名",
                                     style: TextStyle(
-                                        fontSize: 24.0, color: Colors.black)),
-                                TextField(
-                                  decoration:
-                                      InputDecoration(border: InputBorder.none),
+                                        fontSize: 20.0, color: Colors.black)),
+                                Container(
+                                  width: 200,
+                                  height: 30,
+                                  child: TextField(
+                                    decoration: InputDecoration(),
+                                  ),
                                 ),
                                 Image(
                                   image: AssetImage(
@@ -110,21 +133,21 @@ class _ShimingState extends State<Shiming> {
                                 indent: 60.0,
                                 color: Color(0xffACA6A6)),
                             new Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: <Widget>[
-                                Image(
-                                  image: AssetImage(
-                                    'images/zhuanye.png',
-                                  ),
-                                  width: 29.0,
-                                  height: 29.0,
+                                Icon(
+                                  Icons.account_balance_outlined,
+                                  size: 29,
                                 ),
                                 new Text("专业",
                                     style: TextStyle(
-                                        fontSize: 24.0, color: Colors.black)),
-                                TextField(
-                                  decoration:
-                                      InputDecoration(border: InputBorder.none),
+                                        fontSize: 20.0, color: Colors.black)),
+                                Container(
+                                  width: 200,
+                                  height: 30,
+                                  child: TextField(
+                                    decoration: InputDecoration(),
+                                  ),
                                 ),
                                 Image(
                                   image: AssetImage(
@@ -140,7 +163,7 @@ class _ShimingState extends State<Shiming> {
                                 indent: 60.0,
                                 color: Color(0xffACA6A6)),
                             new Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: <Widget>[
                                 Image(
                                   image: AssetImage(
@@ -151,10 +174,13 @@ class _ShimingState extends State<Shiming> {
                                 ),
                                 new Text("电话",
                                     style: TextStyle(
-                                        fontSize: 24.0, color: Colors.black)),
-                                TextField(
-                                  decoration:
-                                      InputDecoration(border: InputBorder.none),
+                                        fontSize: 20.0, color: Colors.black)),
+                                Container(
+                                  width: 200,
+                                  height: 30,
+                                  child: TextField(
+                                    decoration: InputDecoration(),
+                                  ),
                                 ),
                                 Image(
                                   image: AssetImage(
@@ -176,19 +202,18 @@ class _ShimingState extends State<Shiming> {
               left: 25,
             ),
             Positioned(
-              child:SizedBox(
-                height: 221,
-              width: 56,
-              child:RaisedButton(
-                    onPressed: () {
-                      Navigator.of(context).pushNamed("/index");
-                    },
-                    padding: EdgeInsets.all(0.0),
-                    child: Text("注册"),
-                    shape: StadiumBorder(),
-                    color: Color(0xffef882b),
-
-                  ),
+              child: SizedBox(
+                height: 55,
+                width: 150,
+                child: RaisedButton(
+                  onPressed: () {
+                    Navigator.of(context).pushNamed("/index");
+                  },
+                  padding: EdgeInsets.all(0.0),
+                  child: Text("注册",style: TextStyle(fontSize: 24),),
+                  shape: StadiumBorder(),
+                  color: Color(0xffef882b),
+                ),
               ),
               bottom: 190,
             ),
